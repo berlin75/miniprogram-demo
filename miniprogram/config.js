@@ -40,11 +40,11 @@ const config = {
   downloadExampleUrl: `https://${host}/static/weapp.jpg`,
 
   // 云开发环境 ID
-  envId: 'release-b86096',
+  envId: 'cloud-2f439a',
 
   // 云开发-存储 示例文件的文件 ID
-  demoImageFileId: 'cloud://release-b86096.7265-release-b86096/demo.jpg',
-  demoVideoFileId: 'cloud://release-b86096.7265-release-b86096/demo.mp4',
+  demoImageFileId: 'cloud://cloud-2f439a.636c-cloud-2f439a/1551016798270-4550643.png',
+  demoVideoFileId: 'cloud://cloud-2f439a.636c-cloud-2f439a/暴风截图20181021881939765.jpg',
 }
 
 module.exports = config

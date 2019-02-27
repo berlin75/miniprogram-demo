@@ -10,6 +10,7 @@ Page({
 
   data: {
     openid: '',
+    appid: '',
     loading: false
   },
 
@@ -18,12 +19,13 @@ Page({
       loading: true
     })
     app.getUserOpenIdViaCloud()
-      .then(openid => {
+      .then(res => {
         this.setData({
-          openid,
+          openid:res.openid,
+          appid:res.appid,
           loading: false
         })
-        return openid
+        return res.openid
       })
       .catch(err => {
         console.error(err)

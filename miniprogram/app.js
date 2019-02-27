@@ -37,6 +37,11 @@ App({
               code: data.code
             },
             success(res) {
+              if (!res.data.openid){
+                console.log('拉取用户openid失败，将无法正常使用开放接口等服务')
+                callback(res)
+                return
+              }
               console.log('拉取openid成功', res)
               self.globalData.openid = res.data.openid
               callback(null, self.globalData.openid)
@@ -60,8 +65,10 @@ App({
       name: 'wxContext',
       data: {}
     }).then(res => {
+      console.log(res)
       this.globalData.openid = res.result.openid
-      return res.result.openid
+      return {
+        openid: res.result.openid, appid: res.result.appid}
     })
   }
 })

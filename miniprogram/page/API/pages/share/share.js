@@ -7,7 +7,12 @@ Page({
     }
   },
 
-  onShareAppMessage() {
+  onShareAppMessage(res) {
+    console.log(res)
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
     return this.data.shareData
   }
 })

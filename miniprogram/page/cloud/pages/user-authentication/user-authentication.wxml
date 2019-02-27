@@ -7,13 +7,16 @@
   <view class="page-body">
     <view class="page-section">
       <view class="page-body-info">
-        <view class="page-body-title">OpenID</view>
+        
         <block wx:if="{{!openid}}">
           <text class="page-body-text">点击绿色按钮可通过云开发获取用户 OpenID</text>
           <text class="page-body-text">使用云开发，无需自己部署服务端并维护复杂的鉴权机制，在小程序端简单调用即可通过云端获取天然可信任的用户登录态</text>
         </block>
         <block wx:else>
+          <view class="page-body-title">openid</view>
           <text class="openid">{{openid}}</text>
+          <view class="page-body-title" style='margin_bottom:500rpx'>appid</view>
+          <text class="openid">{{appid}}</text>
         </block>
       </view>
       <view class="btn-area">
