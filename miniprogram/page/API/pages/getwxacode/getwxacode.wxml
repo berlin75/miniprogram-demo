@@ -1,0 +1,6 @@
+返回给小程序端的是二维码的二进制码，保存在本机小程序端的storage里或者globalData里。分享的时候临时生成海报发出去
+<view>实时生成</view>
+<image src="{{src}}"></image>
+<view>云存储</view>
+<image src="{{cloudimg}}" data-cloudimg="{{cloudimg}}" bindtap="previewImage"></image>
+<image src="{{qrcode}}" data-qrcode="{{qrcode}}" bindtap="previewImage"></image>

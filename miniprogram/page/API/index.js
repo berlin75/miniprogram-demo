@@ -38,6 +38,12 @@ Page({
             zh: '模板消息',
             url: 'template-message/template-message'
           }, {
+            zh: '模板消息2',
+            url: 'template-msg/template-msg'
+          }, {
+            zh: 'getwxacode',
+            url: 'getwxacode/getwxacode'
+          }, {
             zh: '收货地址',
             url: 'choose-address/choose-address'
           }, {

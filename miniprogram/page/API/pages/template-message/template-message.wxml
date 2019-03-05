@@ -3,6 +3,7 @@
 
 <view class="container">
   <template is="head" data="{{title: 'templateMessage'}}"/>
+  
   <form class="page-body" bindsubmit="submitForm" report-submit="true">
     <view class="weui-cells__title">点击提交，发送示例模板消息</view>
     <view class="weui-cells weui-cells_after-title">
