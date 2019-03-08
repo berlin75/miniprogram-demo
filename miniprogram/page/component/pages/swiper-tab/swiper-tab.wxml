@@ -1,0 +1,50 @@
+<import src="../../../common/head.wxml" />
+<import src="../../../common/foot.wxml" />
+
+  <!-- 用swiper模拟tab -->
+  <view class="tab-header">
+    <view class="tab-item {{curTab == 0 ? 'cur' : ''}}" bindtap='changeTab' data-curtab="0">标签一</view>
+    <view class="tab-item {{curTab == 1 ? 'cur' : ''}}" bindtap='changeTab' data-curtab="1">标签二</view>
+  </view>
+
+  <view class="content" style="height:{{ch}}rpx;">
+    <swiper class="swiper" bindchange='swiperChange' current='{{curTab}}'>
+
+      <swiper-item>
+        <scroll-view scroll-y class="scroll" wx:if="{{curTab == 0}}">
+          <view class="tip">第一个tab</view>
+          <view class="item"></view>
+          <view class="item"></view>
+          <view class="item"></view>
+          <view class="item"></view>
+          <view class="item"></view>
+          <view class="item"></view>
+          <view class="item"></view>
+          <view class="item"></view>
+          <view class="item"></view>
+        </scroll-view>
+      </swiper-item>
+
+      <swiper-item>
+        <scroll-view scroll-y class="scroll" wx:if="{{curTab == 1}}">
+          <view class="tip">第二个tab</view>
+          <view class="item"></view>
+          <view class="item"></view>
+          <view class="item"></view>
+          <view class="item"></view>
+          <view class="item"></view>
+          <view class="item"></view>
+          <view class="item"></view>
+          <view class="item"></view>
+          <view class="item"></view>
+        </scroll-view>
+      </swiper-item>
+
+    </swiper>
+  </view>
+
+  <view>1.scroll-view一定要给一个高度,不然会有问题</view>
+  <view>2.切换的时候只显示当前的swiper-item里的内容,其它swiper-item里的内容可以先隐藏掉,这是因为如果swiper-item里的图片太多的话可能会造成页面回收,因为新闻列表大多是图文列表,而tab经常是不止两个的,,如果每个tab都显示的话到时上拉加载页面会非常庞大,所以建议不用显示的内容先隐藏,,到时切换回来时再重新渲染,如果要保存滚动的位置还要做其它的一些处理</view>
+  <view>3.这里适用的是整个页面都是tab切换的,如果只是在页面的某处实现tab切换,还要考虑高度的问题,加载数据的时候根据数据个数长度来计算高度,每次加载数据都要计算高度,切换到不同的tab也是,这部分比较麻烦,因为要计算,不过并不难,只要计算正确的话是没有问题的；</view>
+
+  <template is="foot" />

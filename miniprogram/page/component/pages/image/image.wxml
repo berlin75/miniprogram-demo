@@ -13,8 +13,32 @@
     </view>
     <view class="page-section page-section-gap">
       <view class="page-section-title">Internet Image</view>
+      <view>http://www.pptbz.com/pptpic/UploadFiles_6909/201203/2012031220134655.jpg</view>
       <view class="page-section-ctn">
-        <image class="image" src="../../resources/pic/2.jpg"/>
+        <image 
+          src="http://www.pptbz.com/pptpic/UploadFiles_6909/201203/2012031220134655.jpg"
+          style="width:{{picSize.width}}rpx;height:{{picSize.height}}rpx;" 
+          bindload="imageLoad"
+        />
+      </view>
+    </view>
+  </view>
+
+  <view>一般情况下从网络上加载图片时,由于图片的尺寸未知,为了防止图片过宽或过长,因此不会完全按照图片的尺寸设置宽高,而是给定一个最大的宽度和高度,目标是将图片按照原始比例并在合适的可视范围内显示。</view>
+  <view>首先为image的bindload属性绑定一个方法,该方法会在图片加载完成时调用从而获取图片尺寸,当图片尺寸获取到后,根据最大宽高计算最终的尺寸,并保存在data中,之后在image中通过style属性将width和height设置为保存的数据即可</view>
+  <view>另外由于图片可能加载失败,那么可以绑定binderror属性,在加载失败时设置width和height,避免image的尺寸不符合预期,也可以在data中设置期望的加载失败时的宽高</view>
+
+   <view class="page">
+    <view class="page__hd">
+      <text class="page__title">image mode</text>
+      <text class="page__desc">图片</text>
+    </view>
+    <view class="page__bd">
+      <view class="section section_gap" wx:for-items="{{array}}" wx:for-item="item" wx:key="*this">
+        <view class="section__title">{{item.text}}</view>
+        <view class="section__ctn" style="text-align: center;">
+          <image style="width:200px;height:200px;background-color:#eeeeee;" mode="{{item.mode}}" src="{{src}}" binderror="imageError"></image>
+        </view>
       </view>
     </view>
   </view>

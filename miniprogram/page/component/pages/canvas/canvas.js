@@ -22,18 +22,10 @@ Page({
     const p = this.position
     p.x += p.vx
     p.y += p.vy
-    if (p.x >= 300) {
-      p.vx = -2
-    }
-    if (p.x <= 7) {
-      p.vx = 2
-    }
-    if (p.y >= 300) {
-      p.vy = -2
-    }
-    if (p.y <= 7) {
-      p.vy = 2
-    }
+    if (p.x >= 300) p.vx = -2
+    if (p.x <= 7)  p.vx = 2
+    if (p.y >= 300) p.vy = -2
+    if (p.y <= 7) p.vy = 2
 
     const context = wx.createCanvasContext('canvas')
 

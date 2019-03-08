@@ -3,6 +3,19 @@
     <image class="index-logo" src="resources/kind/logo.png"></image>
     <view class="index-desc">以下将展示小程序官方组件能力，组件样式仅供参考，开发者可根据自身需求自定义组件样式，具体属性参数详见 <navigator url="pages/doc-web-view/doc-web-view" class="weui-agree__link">小程序开发文档</navigator>。</view>
   </view>
+
+  <!--搜索-->
+  <view class='mysearch'>
+    <form catchsubmit="formSubmit" catchreset="formReset" id="search-form">
+      <view class="search-pancel">
+        <input color="#d3d3d3" value="" id="search-input" class="search-input" name="input" confirm-type="search" placeholder="搜索组件/api/云开发" bindconfirm="formSubmit"></input>
+        <button class="search-button" form-type="submit" size="mini" plain="true">
+            <icon type="search" color="#ccc" size="16" />
+        </button>
+      </view>
+    </form>
+  </view>
+
   <view class="index-bd">
     <view class="kind-list">
       <block wx:for-items="{{list}}" wx:key="{{item.id}}">
@@ -25,4 +38,8 @@
       </block>
     </view>
   </view>
+
+  <view>TIPS</view>
+  <rich-text nodes="{{nodes}}"></rich-text>
+  <view>1、Page.prototype.setData(Object data, Function callback),将数据从逻辑层发送到视图层(异步),同时改变对应的this.data的值(同步),callback可选,表示setData引起界面更新渲染完毕后的回调函数</view>
 </view>

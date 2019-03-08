@@ -1,0 +1,25 @@
+<button bindtap='showPic'>点击生成海报发送到朋友圈</button>
+<view>小程序分享到朋友圈方式有两种,一种是使用后端方式,一种是使用小程序自带的canvas生成</view>
+<view>1、canvas画图时画出来的图大小要是实际效果的两倍大小,比如海报大小是400*600那用canvas画时就要800*1200,宽高可以写在样式里,如果画出来的图跟海报图是一样的大小的话生成的图片是会很模糊的,所以才需要放大两倍</view>
+
+<view>2、canvas绘制使用的是px单位,但不同设备的px是需要换算的,所以在组件中统一使用rpx单位;画图时要注意尺寸的转化,如果用rpx的话就要对单位进行转化,px转rpx的公式是w/750*z*2,w是手机屏幕宽度screenWidth,可以通过wx.getSystemInfo获取,z是需要画图的单位,2就是乘以两倍大小</view>
+
+<view>3、图片来源问题,因为canvas不支持网络图片画图,所以图片要么是固定的,如果不是固定的就要用wx.downloadFile下载后得到一个临时路径才行</view>
+
+<view>4、小程序码问题,小程序需要后台请求接口后返回一个二进制的图片,因为二进制图片canvas也是不支持的,所以也是要用wx.downloadFile下载后得到一个临时路径,或者可以叫后台直接返回一个小程序码的路径给你</view>
+
+<view>5、保存时有个授权提醒的,如果拒绝的话再次点击就没有反应了,所以做了一个判断是否有授权的,如果没有就弹窗提醒,确认的话会打开设置页面,确认授权后再次返回就行了,这里有个坑注意下,就是之前拒绝后再进入设置页面确认授权返回页面时保存图片会不成功,官方还没解决,加了个setTimeOut处理的</view>
+
+<view>6、由于在实际项目中返回的图片宽高是不固定的,但是canvas画出来的又需要固定宽高,所以分享图会有图片变形的问题,使用drawImage里的参数也不能解决</view>
+
+<view class="share-cover" wx:if="{{showSharePic}}" catchtouchmove='true'>
+  <view class="share-pic-box">
+    <view class="share-pic">
+      <image src="{{sharePicUrl}}" class="sharePic"></image>
+    </view>
+    <button class="share-tips" catchtap='savePic'>保存图片</button>
+    <view class="close-share" catchtap='closeShare'></view>
+  </view>
+</view>
+
+<canvas canvas-id="shareFrends" class="canvas"></canvas>

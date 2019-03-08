@@ -32,3 +32,13 @@ scroll-view {
   padding: 10rpx;
   box-sizing: border-box;
 }
+
+
+/* 定义ul的样式 */
+.nodes_ul{
+  
+}
+/* 定义li的样式 */
+.nodes_li{
+
+}

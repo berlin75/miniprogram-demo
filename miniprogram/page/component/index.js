@@ -15,12 +15,12 @@ Page({
         id: 'view',
         name: '视图容器',
         open: false,
-        pages: ['view', 'scroll-view', 'swiper', 'movable-view', 'cover-view']
+        pages: ['view', 'scroll-view', 'swiper', 'swiper-tab', 'movable-view', 'cover-view']
       }, {
         id: 'content',
         name: '基础内容',
         open: false,
-        pages: ['text', 'icon', 'progress', 'rich-text']
+        pages: ['wxfor', 'text', 'icon', 'progress', 'rich-text']
       }, {
         id: 'form',
         name: '表单组件',
@@ -45,14 +45,44 @@ Page({
         id: 'canvas',
         name: '画布',
         open: false,
-        pages: ['canvas']
+        pages: ['canvas', 'canvas-api', 'canvas-poster' ]
       }, {
         id: 'open',
         name: '开放能力',
         open: false,
         pages: ['ad', 'open-data', 'web-view']
       }
-    ]
+    ],
+
+    nodes:[{
+      name: "ul",
+      attrs: {
+        style: "",
+        class: "nodes_ul"
+      },
+      children: [
+        {
+          name: "li",
+          attrs: {
+            style: "",
+            class: "nodes_li"
+          },
+          children: [{
+            type: "text",
+            text: '打卡类小程序'
+          }],
+        }, {
+          name: "li",
+          attrs: {
+            style: "",
+            class: "nodes_li"
+          },
+          children: [{
+            type: "text",
+            text: '打卡类小程序'
+          }],
+        }]
+    }],
   },
 
   kindToggle(e) {
@@ -69,5 +99,20 @@ Page({
       list
     })
     wx.reportAnalytics('click_view_programmatically', {})
-  }
+  },
+
+  formSubmit: function (e) {
+    var url = '../index/index'
+    var key = e.currentTarget.id =="search-input" ? e.detail.value : e.detail.value.input;
+    if (key != '') {
+      url = url + '?search=' +key;
+      wx.navigateTo({ url })
+    }else{
+      wx.showModal({
+        title: '提示',
+        content: '请输入内容',
+        showCancel: false,
+      });
+    }
+  },
 })

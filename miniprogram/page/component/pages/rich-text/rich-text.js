@@ -49,7 +49,36 @@ Page({
         type: 'text',
         text: 'You never know what you\'re gonna get.'
       }]
-    }]
+    }],
+    testnodes:[{
+      name: "ul",
+      attrs: {
+        style: "",
+        class: "nodes_ul"
+      },
+      children: [
+        {
+          name: "li",
+          attrs: {
+            style: "",
+            class: "nodes_li"
+          },
+          children: [{
+            type: "text",
+            text: '礼品卡请在有效期内登录官网使用'
+          }],
+        }, {
+          name: "li",
+          attrs: {
+            style: "",
+            class: "nodes_li"
+          },
+          children: [{
+            type: "text",
+            text: '流量包为当月有效，请及时使用'
+          }],
+        }]
+    }],
   },
   renderHtml() {
     this.setData({

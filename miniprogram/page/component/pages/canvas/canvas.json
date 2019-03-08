@@ -1,3 +1,7 @@
 {
-    "navigationBarTitleText": "canvas"
+    "navigationBarTitleText": "canvas",
+	"navigationBarBackgroundColor":"#74c060",
+    "navigationBarTitleText": "canvas",
+    "backgroundColor":"#808080",
+    "backgroundTextStyle":"light"
 }

@@ -2,7 +2,7 @@
 <import src="../../../common/foot.wxml" />
 
 <view class="container">
-  <template is="head" data="{{title: 'rich-text'}}"/>
+  <template is="head" data="{{title: 'rich-text,将HTML转为微信小程序组件支持的数据格式,rich-text组件内屏蔽所有节点的事件'}}"/>
 
   <view class="page-body">
     <view class="page-section">
@@ -25,6 +25,13 @@
           <rich-text nodes="{{nodes}}"></rich-text>
         </block>
       </view>
+    </view>
+  </view>
+
+  <view class="page-section">
+    <view class="page-section-title">小程序不能直接使用ul标签,但rich-text组件可以实现html很多节点元素,使用rich-text来实现ul列表功能</view>
+    <view class="page-content">
+      <rich-text nodes="{{testnodes}}" class='testnodes'></rich-text>
     </view>
   </view>
 
