@@ -1,0 +1,13 @@
+<button bindtap='showPic'>点击生成海报发送到朋友圈</button>
+
+<view class="share-cover" wx:if="{{showSharePic}}" catchtouchmove='true'>
+  <view class="share-pic-box">
+    <view class="share-pic">
+      <image src="{{sharePicUrl}}" class="sharePic"></image>
+    </view>
+    <button class="share-tips" catchtap='savePic'>保存图片</button>
+    <view class="close-share" catchtap='closeShare'></view>
+  </view>
+</view>
+
+<canvas canvas-id="shareFrends" class="canvas"></canvas>

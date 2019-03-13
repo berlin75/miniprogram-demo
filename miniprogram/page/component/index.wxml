@@ -18,6 +18,29 @@
 
   <view class="index-bd">
     <view class="kind-list">
+        
+      <view class="kind-list-item">
+        <view class="kind-list-item-bd kind-list-item-bd-show">
+          <view class="navigator-box navigator-box-show">
+            <navigator url="pages/tips/tips" class="navigator">
+              <view class="navigator-text">tips</view>
+              <view class="navigator-arrow"></view>
+            </navigator>
+          </view>
+        </view>
+      </view>
+
+      <view class="kind-list-item">
+        <view class="kind-list-item-bd kind-list-item-bd-show">
+          <view class="navigator-box navigator-box-show">
+            <navigator url="pages/demos/demos" class="navigator">
+              <view class="navigator-text">demos</view>
+              <view class="navigator-arrow"></view>
+            </navigator>
+          </view>
+        </view>
+      </view>
+
       <block wx:for-items="{{list}}" wx:key="{{item.id}}">
         <view class="kind-list-item">
           <view id="{{item.id}}" class="kind-list-item-hd {{item.open ? 'kind-list-item-hd-show' : ''}}" bindtap="kindToggle">
@@ -38,8 +61,4 @@
       </block>
     </view>
   </view>
-
-  <view>TIPS</view>
-  <rich-text nodes="{{nodes}}"></rich-text>
-  <view>1、Page.prototype.setData(Object data, Function callback),将数据从逻辑层发送到视图层(异步),同时改变对应的this.data的值(同步),callback可选,表示setData引起界面更新渲染完毕后的回调函数</view>
 </view>

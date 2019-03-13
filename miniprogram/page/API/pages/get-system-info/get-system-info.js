@@ -13,6 +13,7 @@ Page({
     const that = this
     wx.getSystemInfo({
       success(res) {
+        console.log(res)
         that.setData({
           systemInfo: res
         })

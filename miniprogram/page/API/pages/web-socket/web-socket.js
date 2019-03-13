@@ -41,7 +41,6 @@ Page({
     //       hasLogin: true
     //     })
     //   },
-
     //   fail: function(error) {
     //     console.log('登录失败', error)
     //   }

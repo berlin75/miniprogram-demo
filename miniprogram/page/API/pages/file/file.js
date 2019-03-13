@@ -11,12 +11,13 @@ Page({
       savedFilePath: wx.getStorageSync('savedFilePath')
     })
   },
+
   data: {
     tempFilePath: '',
     savedFilePath: '',
     dialog: {
       hidden: true
-    }
+    },
   },
   chooseImage() {
     const that = this

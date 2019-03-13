@@ -8,6 +8,7 @@
 .mysearch{
 /*  position:absolute;
   top:-35rpx;*/
+  margin-bottom: 20rpx;
 }
 
 .search-pancel {

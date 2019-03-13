@@ -1,0 +1,13 @@
+<button bindtap="chooseImage" type="primary">
+	<view>chooseImage  以"http://tmp/"开头</view>
+	<view>saveFile - getSavedFileInfo 变为以"http://store/"开头</view>
+</button>
+<button bindtap="fs">`${wx.env.USER_DATA_PATH}/` fs</button>
+<button bindtap="writefile" data-imgtype="base64">writefile base64 以"http://usr/"开头</button>
+<button bindtap="writefile" data-imgtype="binary">writefile binary</button>
+<button bindtap="savedfile">savedfile 以"http://store/"开头</button>
+
+<button bindtap="getImageInfo" data-imgtype="temp">getImageInfo temp</button>
+<button bindtap="getImageInfo" data-imgurl="http://usr/qrcode.jpg">getImageInfo usr</button>
+<button bindtap="getImageInfo" data-imgurl="http://store/wx512662bc0d57c6af.o6zAJs9VDkWfLhFTPYstnxM4_h5k.6nXkhHhS2qvLab5ddc4add923e59c9dffab84f0dc03b.jpg">getImageInfo store</button>
+<view style="text-align:center"><image src="{{src}}"></image></view>

@@ -1,0 +1,85 @@
+<view style="padding:30rpx">
+<rich-text nodes="{{nodes}}"></rich-text>
+
+<view>1、Page.prototype.setData(Object data, Function callback),将数据从逻辑层发送到视图层(异步),同时改变对应的this.data的值(同步),callback可选,表示setData引起界面更新渲染完毕后的回调函数;与界面渲染无关的数据最好不要设置在data中,可以考虑设置在page对象的其他字段下</view>
+  
+<view>
+wx.request({
+  url: requesturl,
+  header:{'content-type': 'application/x-www-form-urlencoded'},
+  data: {test: 'test', test2: 'test2'},
+  sucess: res => {
+    if(res.statusCode == 200){                         // 判断是否返回200
+      if(res.data && res.data.constructor == Object){  // 判断数据结构是否完整
+        resolve(res.data);
+      }else{
+        console.log('网络异常,请稍后再试! gde0')
+        reject()
+      }
+    }else{
+      console.log('网络异常,请稍后再试! gde1')
+      reject()
+    }
+  },
+  fail: () => {
+    console.log('网络异常,请稍后再试! gde2')
+    reject()
+  }
+})
+</view>
+
+<view>2、分包:根据业务场景，将用户访问率高的页面放在主包里启动时加载，将访问率低的页面放入子包里，按需加载
+├─image
+├─page
+│  ├─API
+│  │  ├─pages
+│  │  │  ├─action-sheet
+│  │  │  ├─animation
+│  │  │  └─web-socket
+│  │  └─resources
+│  ├─common
+│  │  ├─lib
+│  │  └─resources
+│  │      ├─kindAPI
+│  │      └─kindComp
+│  ├─component
+│  │  ├─pages
+│  │  │  ├─audio
+│  │  │  ├─button
+│  │  │  └─canvas
+│  │  └─resources
+│  │      └─pic
+│  └─tabBar
+│      ├─API
+│      └─component
+├─util
+└─vendor
+
+// app.json
+{
+  "pages": [
+    "page/tabBar/component/index",
+    "page/tabBar/API/index"
+  ],
+  "subPackages": [
+    {
+      "root": "page/component/",
+      "pages": [
+        "pages/button/button",
+        "pages/audio/audio",
+        "pages/canvas/canvas"
+      ]
+    },
+    {
+      "root": "page/API/",
+      "pages": [
+        "pages/animation/animation",
+        "pages/action-sheet/action-sheet",
+        "pages/web-socket/web-socket"
+      ]
+    }
+  ],
+
+}
+</view>
+</view>

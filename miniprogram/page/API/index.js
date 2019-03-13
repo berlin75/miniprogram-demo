@@ -115,7 +115,7 @@ Page({
             zh: '监听手机网络变化',
             url: 'on-network-status-change/on-network-status-change'
           }, {
-            zh: '获取手机系统信息',
+            zh: 'wx.getSystemInfo获取手机系统信息',
             url: 'get-system-info/get-system-info'
           }, {
             zh: '监听重力感应数据',
@@ -176,7 +176,7 @@ Page({
         ]
       }, {
         id: 'media',
-        name: '媒体',
+        name: '媒体文件',
         open: false,
         pages: [
           {
@@ -191,6 +191,9 @@ Page({
           }, {
             zh: '文件',
             url: 'file/file'
+          }, {
+            zh: '文件系统',
+            url: 'filesys/filesys'
           }, {
             zh: '视频',
             url: 'video/video'

@@ -1,4 +1,5 @@
 const config = require('./config')
+const event = require('./page/component/pages/demos/lib/event.js');
 
 App({
   onLaunch(opts) {
@@ -11,16 +12,21 @@ App({
         traceUser: true,
       })
     }
+
+    // "page/component/pages/demos/wx-gesture-lock-master"
+    event(this);
   },
   onShow(opts) {
     console.log('App Show', opts)
+    console.log('app.js wx: ', wx)
   },
   onHide() {
     console.log('App Hide')
   },
   globalData: {
     hasLogin: false,
-    openid: null
+    openid: null,
+    userInfo:null
   },
   // lazy loading openid
   getUserOpenId(callback) {
@@ -70,5 +76,51 @@ App({
       return {
         openid: res.result.openid, appid: res.result.appid}
     })
-  }
+  },
+  getAuth(callback) {
+    wx.getSetting({
+      success(res) {
+        console.log(res, res.authSetting['scope.userInfo'])
+        if(res.authSetting['scope.userInfo'] === true){
+          callback()
+        }else if (res.authSetting['scope.userInfo'] === undefined) { //呼起授权界面
+          wx.authorize({
+            scope: 'scope.userInfo',
+            success: () => callback(),
+            fail: err => console.log('authorize', err)
+          })
+        } else if (res.authSetting['scope.userInfo'] === false) { //引导拒绝过授权的用户授权
+          wx.showModal({
+            title: '温馨提示',
+            content: '需要您授权获取用户信息的权限',
+            success: res => {
+              if (res.confirm) {
+                wx.openSetting({
+                  success: res => {
+                    if (res.authSetting['scope.userInfo']) callback()
+                  },
+                  fail: err => console.log('openSetting', err)
+                })
+              }
+            }
+          })
+        }
+      }
+    })
+  },
+  getUserInfo:function(cb){
+    var that = this
+    if(this.globalData.userInfo){
+      typeof cb == "function" && cb(this.globalData.userInfo)
+    }else{
+      this.getAuth(() => {
+        wx.getUserInfo({
+          success: function (res) {
+            that.globalData.userInfo = res.userInfo
+            typeof cb == "function" && cb(that.globalData.userInfo)
+          }
+        })
+      })
+    }
+  },
 })

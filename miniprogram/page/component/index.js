@@ -45,7 +45,7 @@ Page({
         id: 'canvas',
         name: '画布',
         open: false,
-        pages: ['canvas', 'canvas-api', 'canvas-poster' ]
+        pages: ['canvas', 'canvas-api', 'canvas-poster', 'canvas-poster2' ]
       }, {
         id: 'open',
         name: '开放能力',
@@ -53,36 +53,6 @@ Page({
         pages: ['ad', 'open-data', 'web-view']
       }
     ],
-
-    nodes:[{
-      name: "ul",
-      attrs: {
-        style: "",
-        class: "nodes_ul"
-      },
-      children: [
-        {
-          name: "li",
-          attrs: {
-            style: "",
-            class: "nodes_li"
-          },
-          children: [{
-            type: "text",
-            text: '打卡类小程序'
-          }],
-        }, {
-          name: "li",
-          attrs: {
-            style: "",
-            class: "nodes_li"
-          },
-          children: [{
-            type: "text",
-            text: '打卡类小程序'
-          }],
-        }]
-    }],
   },
 
   kindToggle(e) {
@@ -101,7 +71,7 @@ Page({
     wx.reportAnalytics('click_view_programmatically', {})
   },
 
-  formSubmit: function (e) {
+  formSubmit: function (e) { 
     var url = '../index/index'
     var key = e.currentTarget.id =="search-input" ? e.detail.value : e.detail.value.input;
     if (key != '') {
