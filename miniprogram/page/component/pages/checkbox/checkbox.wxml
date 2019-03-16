@@ -2,7 +2,7 @@
 <import src="../../../common/foot.wxml" />
 
 <view class="container">
-  <template is="head" data="{{title: 'checkbox'}}"/>
+  <template is="head" data="{{title: 'checkbox 调整大小transform: scale(0.6);'}}"/>
 
   <view class="page-body">
     <view class="page-section page-section-gap">

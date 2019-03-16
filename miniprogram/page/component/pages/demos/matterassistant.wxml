@@ -52,7 +52,7 @@
     <checkbox-group bindchange="checkboxChange">
       <block wx:for="{{itemList}}" wx:key="id">
         <view style="margin:0 40rpx;border-top: 2rpx solid #333;position:relative;display:-webkit-box;display:-webkit-flex;display:flex;-webkit-box-align:center;-webkit-align-items:center;align-items:center;padding: 16rpx 0">
-          <checkbox value="{{item._id}}" size="16rpx"/>
+          <checkbox value="{{item._id}}" style="transform: scale(0.6);"/>
           <view class="item" data-id="{{item._id}}" bindtap="listItemClickEvent" bindlongpress="listItemLongPressEvent">
               <view class="radio-base radio-green" wx:if="{{item.level == 1}}"></view>
               <view class="radio-base radio-yellow" wx:if="{{item.level == 2}}"></view>
