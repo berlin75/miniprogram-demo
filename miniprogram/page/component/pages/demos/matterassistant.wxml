@@ -1,0 +1,141 @@
+<view class="wrapper">
+  <view class="og-calendar">
+    <view class="header">
+      <view class="btn month-pre" bindtap="changeDateEvent" data-year="{{data.beforeYear}}" data-month="{{data.beforMonth}}"> 
+        <image src="./matterassistant/images/prepage.png"></image>
+      </view>
+
+      <view class="date-info">
+        <picker mode="date" fields="month" value="{{pickerDateValue}}" bindchange="datePickerChangeEvent">
+          <text wx:if="{{data.showYear}}">{{data.showYear}}年{{data.showMonth > 9 ? data.showMonth : ('0' + data.showMonth)}}月</text>
+          <text wx:if="{{!data.showYear}}">请选择日期</text>
+        </picker>
+      </view>
+
+      <view class="btn month-next" bindtap="changeDateEvent" data-year="{{data.afterYear}}" data-month="{{data.afterMonth}}">
+        <image src="./matterassistant/images/nextpage.png"></image>
+      </view>
+    </view>
+
+    <view class="week row">
+      <block wx:for="{{['一','二','三','四','五','六','日']}}" wx:key="index">
+        <view class="col">
+          <text>{{item}}</text>
+        </view>
+      </block>
+    </view>
+
+    <view class="body row">  
+      <block wx:for="{{data.dates}}" wx:key="_id">
+        <view bindtap="dateClickEvent" data-year="{{item.year}}" data-month="{{item.month}}" data-date="{{item.date}}" class="col {{data.showMonth == item.month ? '' : 'old'}} {{data.currentDate == item.date && data.currentYear==item.year && data.currentMonth == item.month ? 'current' : ''}} {{item.active ? 'active' : ''}}">
+          <text>{{item.date}}</text>
+        </view> 
+      </block>
+    </view>
+  </view>
+
+  <view class="show-date">
+    <text>{{data.selectDateText}}</text>
+  </view>
+
+  <view class="common-list">
+    <view class="header" style="border-top:2rpx solid #333;margin:0 40rpx;padding:20rpx 0;color:#AAA;font-size:40rpx;">
+      事项信息
+      <icon type="cancel" size="25" color="#E14848" style="margin-left:40rpx;transform:rotate(45deg);vertical-align:middle;" bindtap="showUpdatePanelEvent"/>
+      <icon type="cancel" size="25" color="#E14848" style="margin-left:40rpx;vertical-align:middle;" bindtap="removeRangeTapEvent"/>
+    </view>
+
+    <view class="header text-center" wx:if="{{!itemList || itemList.length <= 0}}">
+      <text style="color:#ccc">当前日期没有事项记录</text>
+    </view>
+    
+    <checkbox-group bindchange="checkboxChange">
+      <block wx:for="{{itemList}}" wx:key="id">
+        <view style="margin:0 40rpx;border-top: 2rpx solid #333;position:relative;display:-webkit-box;display:-webkit-flex;display:flex;-webkit-box-align:center;-webkit-align-items:center;align-items:center;padding: 16rpx 0">
+          <checkbox value="{{item._id}}" size="16rpx"/>
+          <view class="item" data-id="{{item._id}}" bindtap="listItemClickEvent" bindlongpress="listItemLongPressEvent">
+              <view class="radio-base radio-green" wx:if="{{item.level == 1}}"></view>
+              <view class="radio-base radio-yellow" wx:if="{{item.level == 2}}"></view>
+              <view class="radio-base radio-red" wx:if="{{item.level == 3}}"></view>
+              <view class="content">
+                <text class="title">{{item.title}}</text>
+              </view>
+          </view>
+      </view>
+      </block>
+    </checkbox-group>
+  </view>
+</view>
+
+<!-- plus start -->
+<view class="updatePanel" style="top: {{windowHeight}}px;height:{{windowHeight}}px" animation="{{updatePanelAnimationData}}">
+  <view class="title">添加事项</view>
+  <form catchsubmit="saveDataEvent">
+    <input placeholder="请输入事项标题" name="title" focus />
+    <textarea placeholder="请输入事项内容" name="content"></textarea>
+    <radio-group class="radio-group" name="level" bindchange="radiochange">
+      <label>
+        <radio value="1" checked="checked" hidden="true" color="#008000"/>
+        <view class="radio-base {{levelSelectedValue==1 ? 'radio-green' : 'radio-green-no'}}"></view>
+      </label>
+      <label>
+        <radio value="2" hidden="true" color="#FFD700"/>
+        <view class="radio-base {{levelSelectedValue==2 ? 'radio-yellow' : 'radio-yellow-no'}}"></view>
+      </label>
+      <label>
+        <radio value="3" hidden="true" color="#8B0000"/>
+        <view class="radio-base {{levelSelectedValue==3 ? 'radio-red' : 'radio-red-no'}}"></view>
+      </label>
+    </radio-group>
+    <view class="footer" wx:if="{{updatePanelAnimationData}}">
+      <button type="primary" formType="submit" size="mini">保存</button>
+      <button bindtap="closeUpdatePanelEvent" size="mini">取消</button>
+    </view>
+  </form>
+</view>
+<!-- plus over -->
+
+<!-- show detail start -->
+<view class="detailPanel" wx:if="{{itemdetail}}" style="top: {{windowHeight}}px;height:{{windowHeight}}px" animation="{{detailPanelAnimationData}}">
+  <view class="show-item">
+    <view class="title">标题</view>
+    <view class="content">
+      <text>{{itemdetail.title}}</text>
+    </view>
+  </view>
+
+  <view class="show-item">
+    <view class="title">内容</view>
+    <view class="content">
+      <text>{{itemdetail.content}}</text>
+    </view>
+  </view>
+
+  <view class="show-item">
+    <view class="title">事项等级</view>
+    <view class="content">
+      <view wx:if="{{itemdetail.level == 1}}" class="ball bg-normal"></view>
+      <view wx:elif="{{itemdetail.level == 2}}" class="ball bg-warning"></view>
+      <view wx:else class="ball bg-danger"></view>
+    </view>
+  </view>
+
+  <view class="show-item">
+    <view class="title">事项日期</view>
+    <view class="content">
+      <text>{{itemdetail.year}}年{{itemdetail.month+1}}月{{itemdetail.date}}日</text>
+    </view>
+  </view>
+
+  <view class="show-item">
+    <view class="title">添加日期</view>
+    <view class="content">
+      <text>{{itemdetail.addDate}}</text>
+    </view>
+  </view>
+  <view class="footer">
+    <view class="btn primary" bindtap="closeDetailPanelEvent">返回</view>
+  </view>
+</view>
+<!-- show detail over -->
+

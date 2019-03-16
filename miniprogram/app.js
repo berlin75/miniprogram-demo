@@ -18,7 +18,6 @@ App({
   },
   onShow(opts) {
     console.log('App Show', opts)
-    console.log('app.js wx: ', wx)
   },
   onHide() {
     console.log('App Hide')

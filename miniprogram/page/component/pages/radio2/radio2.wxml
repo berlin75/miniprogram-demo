@@ -1,0 +1,6 @@
+<radio-group class="group">
+      <view class="attr_value">
+           <radio color=''></radio>
+           <label class='radio_label'>颜色</label>
+      </view>
+</radio-group>
