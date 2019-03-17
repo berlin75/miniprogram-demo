@@ -1,5 +1,4 @@
 import DataService from  './matterassistant/utils/DataService';
-import {LEVEL} from './matterassistant/utils/Config';
 import {promiseHandle, formatNumber, getDateStr} from './matterassistant/utils/util';
 
 Page({

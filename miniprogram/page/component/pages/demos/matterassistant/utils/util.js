@@ -1,5 +1,3 @@
-// import Promise from './es6-promise.min';
-
 function formatTime(date) {
   let year = date.getFullYear()
   let month = date.getMonth() + 1
