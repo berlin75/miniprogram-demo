@@ -72,31 +72,33 @@ App({
     }).then(res => {
       console.log(res)
       this.globalData.openid = res.result.openid
-      return {
-        openid: res.result.openid, appid: res.result.appid}
+      return { openid: res.result.openid, appid: res.result.appid}
     })
   },
-  getAuth(callback) {
+  getAuth(callback, scope, desc) {
+    scope = scope || 'scope.userInfo'
+    desc = desc || '用户信息'
+
     wx.getSetting({
       success(res) {
-        console.log(res, res.authSetting['scope.userInfo'])
-        if(res.authSetting['scope.userInfo'] === true){
+        console.log(res, res.authSetting[scope])
+        if(res.authSetting[scope] === true){
           callback()
-        }else if (res.authSetting['scope.userInfo'] === undefined) { //呼起授权界面
+        }else if (res.authSetting[scope] === undefined) { //呼起授权界面
           wx.authorize({
             scope: 'scope.userInfo',
             success: () => callback(),
             fail: err => console.log('authorize', err)
           })
-        } else if (res.authSetting['scope.userInfo'] === false) { //引导拒绝过授权的用户授权
+        } else if (res.authSetting[scope] === false) { //引导拒绝过授权的用户授权
           wx.showModal({
             title: '温馨提示',
-            content: '需要您授权获取用户信息的权限',
+            content: '需要您授权获取'+ desc +'的权限',
             success: res => {
               if (res.confirm) {
                 wx.openSetting({
                   success: res => {
-                    if (res.authSetting['scope.userInfo']) callback()
+                    if (res.authSetting[scope]) callback()
                   },
                   fail: err => console.log('openSetting', err)
                 })
@@ -115,6 +117,7 @@ App({
       this.getAuth(() => {
         wx.getUserInfo({
           success: function (res) {
+            console.log('app.getUserInfo', res)
             that.globalData.userInfo = res.userInfo
             typeof cb == "function" && cb(that.globalData.userInfo)
           }

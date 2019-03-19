@@ -23,6 +23,9 @@ Page({
             zh: '获取用户信息',
             url: 'get-user-info/get-user-info'
           }, {
+            zh: 'getUserInfo',
+            url: 'getUserInfo/getUserInfo'
+          }, {
             zh: '发起支付',
             url: 'request-payment/request-payment'
           }, {

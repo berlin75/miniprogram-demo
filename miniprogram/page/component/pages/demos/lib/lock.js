@@ -23,6 +23,11 @@ module.exports = class {
         this.init();
     }
     init() {
+        /*password:123
+        [{"x":64.28571428571428,"y":64.28571428571428,"index":1},
+        {"x":150,"y":64.28571428571428,"index":2},
+        {"x":235.7142857142857,"y":64.28571428571428,"index":3}]
+        */
         this.pswObj = wx.getStorageSync('passwordxx') ? {
             step: 2,
             spassword: JSON.parse(wx.getStorageSync('passwordxx'))

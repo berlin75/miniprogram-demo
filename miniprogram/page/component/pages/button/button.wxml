@@ -37,8 +37,15 @@
       <button class="btn" bindtap="setDisabled">点击设置以上按钮disabled属性</button>
       <button class="btn" bindtap="setPlain">点击设置以上按钮plain属性</button>
       <button class="btn" bindtap="setLoading">点击设置以上按钮loading属性</button>
-      <button class="btn" open-type="contact">进入客服会话</button>
-      <button class="btn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">获取用户信息</button>
+     
+      <view class="button-sp-area">
+        <button class="btn" open-type="contact">进入客服会话</button>
+        <button class="btn" open-type="share">触发用户转发</button>
+        <button class="btn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">获取用户信息</button>
+        <button class="btn" open-type="getPhoneNumber" bindgetphonenumber="ongetphonenumber">获取用户手机号</button>
+        <button class="btn" open-type="openSetting" bindopensetting="onopensetting">打开授权设置页</button>
+        <button class="btn" open-type="feedback">打开意见反馈页面</button>
+      </view>
     </view>
   </view>
 

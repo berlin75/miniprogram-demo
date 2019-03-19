@@ -10,6 +10,7 @@ Page({
     hasUserInfo: false
   },
   getUserInfo(info) {
+    console.log(info)
     const userInfo = info.detail.userInfo
     this.setData({
       userInfo,

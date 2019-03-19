@@ -56,6 +56,7 @@
     "page/API/index",
     "page/API/pages/login/login",
     "page/API/pages/get-user-info/get-user-info",
+    "page/API/pages/getUserInfo/getUserInfo",
     "page/API/pages/request-payment/request-payment",
     "page/API/pages/share/share",
     "page/API/pages/share-button/share-button",
@@ -126,7 +127,8 @@
     "page/cloud/pages/server-date/server-date",
     "page/cloud/pages/scf-database/scf-database",
     "page/cloud/pages/scf-storage/scf-storage",
-    "page/cloud/pages/doc-web-view/doc-web-view"
+    "page/cloud/pages/doc-web-view/doc-web-view",
+    "page/component/pages/demos/turntable"
   ],
   "window": {
     "navigationBarTextStyle": "black",

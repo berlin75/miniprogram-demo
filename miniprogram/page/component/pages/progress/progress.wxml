@@ -2,6 +2,8 @@
 <import src="../../../common/foot.wxml" />
 
 <view class="container">
+  <progress percent="100" stroke-width="2" active color="#3080c0"/>
+  
   <template is="head" data="{{title: 'progress'}}"/>
 
   <view class="page-body">
@@ -21,7 +23,7 @@
       </view>
 
       <view class="progress-box">
-        <progress percent="80" color="#10AEFF" active stroke-width="3" />
+        <progress percent="80" color="#10AEFF" active border-radius="3" stroke-width="8" />
       </view>
     </view>
   </view>

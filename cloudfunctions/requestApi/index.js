@@ -80,6 +80,18 @@ exports.main = async (event, context) => {
 		       	cloudPath: 'wxaqrcode.png',
 		       	fileContent: body,
 		    })
+		}else if(event.action == 'code2Session'){
+			const {code, userinfo} = event;
+			url = 'https://api.weixin.qq.com/sns/jscode2session?appid=wx512662bc0d57c6af&secret=9f754de901a14ec0e95949b324b6a54b&js_code='+ code +'&grant_type=authorization_code'
+			body = await requestpromise({url})
+			const {session_key,openid} = JSON.parse(body)
+
+			const WXBizDataCrypt = require('./WXBizDataCrypt')
+
+			const appId = 'wx512662bc0d57c6af'
+			const sessionKey = session_key
+			const pc = new WXBizDataCrypt(appId, sessionKey)
+			return pc.decryptData(userinfo.encryptedData , userinfo.iv)
 		}
 	}catch(err){
 	    return err;

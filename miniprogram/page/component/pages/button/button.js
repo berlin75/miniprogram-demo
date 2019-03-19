@@ -28,6 +28,23 @@ var pageObject = {
     console.log(e.detail.userInfo)
     console.log(e.detail.rawData)
   },
+  ongetphonenumber: function(e){
+    console.log(e)
+  },
+  onopensetting: function(e){
+    console.log(e)
+  },
+  onShareAppMessage(res) {
+    console.log(res)
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: 'button',
+      path: 'page/component/pages/button/button'
+    }
+  },
 }
 
 for (let i = 0; i < types.length; ++i) {

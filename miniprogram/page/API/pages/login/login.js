@@ -12,7 +12,9 @@ Page({
       hasLogin: app.globalData.hasLogin
     })
   },
+
   data: {},
+  
   login() {
     const that = this
     wx.login({
