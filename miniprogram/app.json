@@ -1,7 +1,6 @@
 {
   "pages": [
     "page/component/index",
-    "page/component/pages/tips/tips",
     "page/component/pages/wxfor/wxfor",
     "page/component/pages/view/view",
     "page/component/pages/scroll-view/scroll-view",
@@ -63,6 +62,7 @@
     "page/API/pages/custom-message/custom-message",
     "page/API/pages/template-message/template-message",
     "page/API/pages/template-msg/template-msg",
+    "page/API/pages/temp-msg/temp-msg",
     "page/API/pages/getwxacode/getwxacode",
     "page/API/pages/set-navigation-bar-title/set-navigation-bar-title",
     "page/API/pages/navigation-bar-loading/navigation-bar-loading",

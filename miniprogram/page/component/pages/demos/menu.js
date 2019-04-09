@@ -146,8 +146,7 @@ Page({
         that.setData({
           animationData: animationRun.export(),
         })
-      }
-      else {
+      } else {
         if (angleSpeed < -500) angleSpeed = -500
         angleSpeed = Math.abs(angleSpeed);
         var animationRun = wx.createAnimation({

@@ -25,29 +25,4 @@
       </block>
     </view>
   </view>
-
-  <view>TIPS</view>
-  <view>
-  // 将所有云函数写在同一个云函数内,如果需要切换环境,只需要修改一个文件,部署一个云函数即可
-  // 云函数入口文件
-  const cloud = require('wx-server-sdk');
-  cloud.init();
-  // 云函数入口函数
-  exports.main = async (event, context) => {
-    log(event , "收到云函数调用");
-    const funcMain = require("./functions/" + event.funcName + ".js");// 根据funcName寻址云函数
-    return await funcMain(event, context, cloud);// 将任务分发下发。此处要将 cloud 传下去
-  };
-
-  // 云函数入口文件
-  var cloud;
-  var db;
-  var _;
-  // 云函数入口函数
-  const main = async(event, context, cloud) => {
-      db = cloud.database();
-      _ = db.command;
-  };
-  module.exports = main;
-  </view>
 </view>

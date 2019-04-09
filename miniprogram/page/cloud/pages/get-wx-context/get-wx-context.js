@@ -14,6 +14,16 @@ Page({
     loading: false
   },
 
+  onLoad(){
+    wx.cloud.callFunction({
+        name: 'requestApi',
+        data: { action: 'env' },
+    }).then(res => {
+      console.log('[云函数] [requestApi]: ', res.result)
+      console.log('context.environ: ', res.result.context.environ.split(";"))
+    }).catch(err => console.error('[云函数] [requestApi] 调用失败', err))
+  },
+
   getWXContext() {
     this.setData({
       loading: true
@@ -33,6 +43,7 @@ Page({
         console.error('[云函数] [wxContext] 调用失败', err)
       }
     })
+
   },
 
   clear() {

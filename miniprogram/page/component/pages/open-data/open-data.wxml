@@ -14,7 +14,7 @@
   <template is="head" data="{{title: 'open-data'}}"/>
   <view class="page-body">
     <view class="avatar">
-      <open-data class="avatar-img" type="userAvatarUrl" lang="zh_CN"></open-data>
+      <open-data class="avatar-img" style="overflow: hidden" type="userAvatarUrl" lang="zh_CN"></open-data>
     </view>
     <form>
       <view class="page-section">
@@ -53,7 +53,6 @@
               </view>
             </view>
           </view>
-
 
           <view class="weui-cell weui-cell_input">
             <view class="weui-cell__hd">

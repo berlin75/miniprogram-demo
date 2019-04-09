@@ -22,47 +22,36 @@ Page({
     let form_id = e.detail.formId;
     let data = {};
     this.data.formData.forEach(({ name }) => {
-        if (name) data[name] = { value: formData[name] };
+      if (name) data[name] = { value: formData[name] };
     });
 
+    console.log(data, form_id); // bddd771f52da4752876933527433c4db
     /*
-    data = [ 
-      "keyword1"=>[
-        "value"=>"value1",
-        "color"=>"#4a4a4a"  // 默认黑色
-      ],
-      "keyword2"=>[
-          "value"=>$fee,
-          "color"=>"#9b9b9b"
-      ],
-      "keyword3"=>[
-          "value"=>'value3',
-          "color"=>"red"
-     ])
-    ]
+    color默认黑色
+    {
+      keyword1: {value: "000001", color: "#4a4a4a"},
+      keyword2: {value: "苹果", color: "#9b9b9b"},
+      keyword3: {value: "100", color: "#red"},
+      keyword4: {value: "2019-03-01", color: "#4a4a4a"},
+    }
     */
 
     wx.cloud.callFunction({
-        name: 'requestApi',
-        data: { 
-          form_id, 
-          data, 
-          template_id: this.data.template_id, 
-          page: 'page/component/index',
-          keyword: "keyword1.DATA",
-          action: 'sendTemplateMessage'
-        },
+      name: 'requestApi',
+      data: { 
+        form_id, 
+        data, 
+        template_id: this.data.template_id, 
+        page: 'page/component/index',
+        keyword: "keyword1.DATA",
+        action: 'sendTemplateMessage'
+      },
     }).then(res => {
       console.log(res)
       if (res.result && res.result.errcode === 0) {
-        wx.showToast({
-          title: '成功',
-        });
+        wx.showToast({ title: '成功' });
       }else {
-        wx.showToast({
-          title: '失败',
-          icon: 'none'
-        })
+        wx.showToast({ title: '失败', icon: 'none' })
       }
     });
   },
@@ -72,7 +61,7 @@ Page({
     wx.cloud.callFunction({
         name: 'requestApi',
         data: { action: 'getTemplateLibraryList'},
-    }).then(res => {
+    }).then(res => { 
       this.setData({loading: false})
       res = JSON.parse(res.result)
       console.log(res)
@@ -93,7 +82,7 @@ Page({
     this.setData({loading2: true})
     wx.cloud.callFunction({
         name: 'requestApi',
-        data: { action: 'getTemplateLibraryById'},
+        data: { action: 'getTemplateLibraryById', id: 'AT0005'},
     }).then(res => {
       this.setData({loading2: false})
       res = JSON.parse(res.result)
@@ -137,7 +126,7 @@ Page({
     this.setData({loading3: true})
     wx.cloud.callFunction({
         name: 'requestApi',
-        data: { action: 'addTemplate'},
+        data: { action: 'addTemplate', id: 'AT0005', keyword_id_list: [1, 2, 3, 10, 22]},
     }).then(res => {
       this.setData({loading3: false})
       console.log(res)

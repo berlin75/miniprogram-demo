@@ -18,18 +18,6 @@
 
   <view class="index-bd">
     <view class="kind-list">
-        
-      <view class="kind-list-item">
-        <view class="kind-list-item-bd kind-list-item-bd-show">
-          <view class="navigator-box navigator-box-show">
-            <navigator url="pages/tips/tips" class="navigator">
-              <view class="navigator-text">tips</view>
-              <view class="navigator-arrow"></view>
-            </navigator>
-          </view>
-        </view>
-      </view>
-
       <view class="kind-list-item">
         <view class="kind-list-item-bd kind-list-item-bd-show">
           <view class="navigator-box navigator-box-show">

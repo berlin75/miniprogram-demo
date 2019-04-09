@@ -14,35 +14,38 @@ Page({
         open: false,
         pages: [
           {
-            zh: '微信登录',
+            zh: '微信登录 login',
             url: 'login/login'
           }, {
-            zh: '获取当前账户信息',
+            zh: '获取当前账户信息 get-account-info',
             url: 'get-account-info/get-account-info'
           }, {
-            zh: '获取用户信息',
+            zh: '获取用户信息 button getUserInfo',
             url: 'get-user-info/get-user-info'
           }, {
             zh: 'getUserInfo',
             url: 'getUserInfo/getUserInfo'
           }, {
-            zh: '发起支付',
+            zh: '发起支付 payment',
             url: 'request-payment/request-payment'
           }, {
-            zh: '转发',
+            zh: '转发 share',
             url: 'share/share'
           }, {
-            zh: '转发按钮',
+            zh: '转发按钮 share-button',
             url: 'share-button/share-button'
           }, {
-            zh: '客服消息',
+            zh: '客服消息 custom-message',
             url: 'custom-message/custom-message'
           }, {
-            zh: '模板消息',
+            zh: '模板消息 template-message',
             url: 'template-message/template-message'
           }, {
-            zh: '模板消息2',
+            zh: '模板消息 template-msg',
             url: 'template-msg/template-msg'
+          }, {
+            zh: '模板消息组件 temp-msg',
+            url: 'temp-msg/temp-msg'
           }, {
             zh: 'getwxacode',
             url: 'getwxacode/getwxacode'
@@ -56,7 +59,7 @@ Page({
             zh: '生物认证',
             url: 'soter-authentication/soter-authentication'
           }, {
-            zh: '设置',
+            zh: '设置 setting',
             url: 'setting/setting'
           }
         ]
@@ -75,29 +78,29 @@ Page({
             zh: '设置TabBar',
             url: '@set-tab-bar'
           }, {
-            zh: '页面跳转',
+            zh: '页面跳转 navigator',
             url: 'navigator/navigator'
           }, {
             zh: '下拉刷新',
             url: 'pull-down-refresh/pull-down-refresh'
           }, {
-            zh: '创建动画',
+            zh: '创建动画 animation',
             url: 'animation/animation'
           }, {
-            zh: '创建绘画',
+            zh: '创建绘画 canvas',
             url: 'canvas/canvas'
           }, {
             zh: '显示操作菜单',
             url: 'action-sheet/action-sheet'
           }, {
-            zh: '显示模态弹窗',
+            zh: '显示模态弹窗 modal',
             url: 'modal/modal'
+          }, {
+            zh: '显示消息提示框 toast',
+            url: 'toast/toast'
           }, {
             zh: '页面滚动',
             url: 'page-scroll/page-scroll'
-          }, {
-            zh: '显示消息提示框',
-            url: 'toast/toast'
           }, {
             zh: '获取WXML节点信息',
             url: 'get-wxml-node-info/get-wxml-node-info'

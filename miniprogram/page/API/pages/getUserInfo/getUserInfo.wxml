@@ -1,1 +1,10 @@
-<text>openId watermark</text>
+<view>如果只是单纯的展示用户信息便使用open-data,如果是需要将用户信息通过接口传递到后台那么需要强制授权：小程序限制通过wx.getUserInfo({})和wx.authorize({scope: "scope.userInfo"})获取弹出授权框,不支持打开时就直接弹出授权窗,只能使用点击button按钮触发授权引导用户手动授权登录,所以在用户未授权的情况下在onload函数中使用wx.getUserInfo是默认失败的,只有在用户已经授权后才能在onload函数中获取到用户信息;wx.getUserInfo -> encryptedData -> openId watermark</view>
+
+<button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" type="primary">授权登录</button>
+<view wx:else>请升级微信版本</view>
+
+<view>
+1.获取用户头像昵称,第一次需要使用button组件授权,如果已经用组件授权了,wx.getUserInfo可直接返回用户数据,无需重复授权弹窗。
+2.如果没有用button组件授权,wx.getUserInfo调用接口返回失败,提醒开发者需要先使用button组件授权。
+3.用户可在设置中取消授权。取消授权后需重新用buttond组件拉起授权。
+</view>

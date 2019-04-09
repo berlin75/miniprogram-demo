@@ -35,6 +35,7 @@ Page({
   },
 
   bindChange(e) {
+    console.log(e)
     const val = e.detail.value
     this.setData({
       year: this.data.years[val[0]],
@@ -42,5 +43,14 @@ Page({
       day: this.data.days[val[2]],
       isDaytime: !val[3]
     })
-  }
+  },
+
+  bindpickstart(e){
+    console.log(e)
+  },
+
+  bindpickend(e){
+    console.log(e)
+  },
+
 })

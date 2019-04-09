@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
 
   /**
@@ -18,13 +18,12 @@ Page({
         console.log(res)
       },
       fail(err) {
-        // session_key 已经失效，需要重新执行登录流程
+        // session_key 已经失效，需要重新执行登录流程wx.login()
         console.log(err)
-        return
-        wx.login() // 重新登录
       }
     })
 
+    /*
     wx.login({
       success(res) {
         if (res.code) {
@@ -43,13 +42,50 @@ Page({
               }
             })
           })
-
-          
         } else {
           console.log('登录失败！' + res.errMsg)
         }
       }
     })
+    */
+
+
+    // button
+    // 通过wx.getSetting检查用户是否已经授权，如果没有授权则停止执行,如果已经授权则继续执行success 
+    wx.getSetting({
+      success: function(res){
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          wx.getUserInfo({
+            success: function(res) {
+              console.log(res)
+            }
+          })
+        }
+      }
+    })
+
+    /*
+    <button open-type="getUserInfo" bindgetuserinfo='getUser'>获取用户信息(授权登录)</button>
+    js:
+
+    getUser(e) { 
+        console.log(e)
+        wx.getUserInfo({
+            success: (res) => {
+                console.log(res)
+                this.setData({
+                    userInfo: res.userInfo
+                });
+            }
+        })
+    }
+    */
+
+  },
+
+  bindGetUserInfo: function(e) {
+    console.log("button", e, e.detail.userInfo)
   },
 
   /**
