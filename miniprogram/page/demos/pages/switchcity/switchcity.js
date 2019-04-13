@@ -1,4 +1,4 @@
-var city = require('lib/city.js');
+var city = require('../../lib/city.js');
 
 //欢迎关注:http://www.wxapp-union.com/portal.php
 //CSDN微信小程序开发专栏:http://blog.csdn.net/column/details/13721.html

@@ -9,14 +9,14 @@ Page({
     indexSelect: 0,//被选中的奖品index
     isRunning: false,//是否正在抽奖
     imageAward: [
-      'images/1.jpg',
-      'images/2.jpg',
-      'images/3.jpg',
-      'images/4.jpg',
-      'images/5.jpg',
-      'images/6.jpg',
-      'images/7.jpg',
-      'images/8.jpg',
+      '../../images/1.jpg',
+      '../../images/2.jpg',
+      '../../images/3.jpg',
+      '../../images/4.jpg',
+      '../../images/5.jpg',
+      '../../images/6.jpg',
+      '../../images/7.jpg',
+      '../../images/8.jpg',
     ],//奖品图片数组
   },
 

@@ -18,17 +18,6 @@
 
   <view class="index-bd">
     <view class="kind-list">
-      <view class="kind-list-item">
-        <view class="kind-list-item-bd kind-list-item-bd-show">
-          <view class="navigator-box navigator-box-show">
-            <navigator url="pages/demos/demos" class="navigator">
-              <view class="navigator-text">demos</view>
-              <view class="navigator-arrow"></view>
-            </navigator>
-          </view>
-        </view>
-      </view>
-
       <block wx:for-items="{{list}}" wx:key="{{item.id}}">
         <view class="kind-list-item">
           <view id="{{item.id}}" class="kind-list-item-hd {{item.open ? 'kind-list-item-hd-show' : ''}}" bindtap="kindToggle">

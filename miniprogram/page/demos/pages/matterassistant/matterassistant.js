@@ -1,5 +1,5 @@
-import DataService from  './matterassistant/utils/DataService';
-import {promiseHandle, formatNumber, getDateStr} from './matterassistant/utils/util';
+import DataService from  'utils/DataService';
+import {promiseHandle, formatNumber, getDateStr} from 'utils/util';
 
 Page({
   data: {

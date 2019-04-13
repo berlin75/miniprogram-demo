@@ -10,14 +10,14 @@ Page({
     //中间的话“Ho~ You Win”
     gameOfPlay:'',
     //用户选择的图片
-    imageUserScr:'images/wenhao.png',
+    imageUserScr:'../../images/wenhao.png',
     //电脑随机的图片
     imageAiScr:'',
     //石头剪刀布图片数组
     srcs:[
-      'images/shitou.png',
-      'images/jiandao.png',
-      'images/bu.png'
+      '../../images/shitou.png',
+      '../../images/jiandao.png',
+      '../../images/bu.png'
     ]
   },
 
@@ -53,18 +53,18 @@ Page({
       var str = '0.0~\nYou Lost!';
 
       //判断是否获胜
-      if( user == "images/shitou.png" && ai == "images/jiandao.png"){
+      if( user == "../../images/shitou.png" && ai == "../../images/jiandao.png"){
          //获胜后增加次数、改变文字内容、从新缓存获胜次数
          num++;
          str = 'Ho~\nYou Win!';
          wx.setStorageSync('winNum', num);
       };
-      if(user == "images/jiandao.png" && ai == "images/bu.png"){
+      if(user == "../../images/jiandao.png" && ai == "../../images/bu.png"){
          num++;
          str = 'Ho~\nYou Win!';
          wx.setStorageSync('winNum', num);
       };
-      if(user== "images/bu.png" && ai == "images/shitou.png"){
+      if(user== "../../images/bu.png" && ai == "../../images/shitou.png"){
          num++;
          str = 'Ho~\nYou Win!';
          wx.setStorageSync('winNum', num);
@@ -112,7 +112,7 @@ Page({
       this.setData({
           btnState:false,
           gameOfPlay:'',
-          imageUserScr:'images/wenhao.png'
+          imageUserScr:'../../images/wenhao.png'
       });
   }
 })

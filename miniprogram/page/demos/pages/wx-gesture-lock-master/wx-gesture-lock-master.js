@@ -1,4 +1,4 @@
-var Lock = require('./lib/lock.js');
+var Lock = require('../../lib/lock.js');
 var app = getApp();
 
 // miniprogram/page/component/pages/demos/wx-gesture-lock-master.js

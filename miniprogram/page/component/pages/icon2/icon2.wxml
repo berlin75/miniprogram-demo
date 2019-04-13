@@ -1,0 +1,11 @@
+<import src="../../../common/head.wxml"/>
+<import src="../../../common/foot.wxml"/>
+
+<view class="container">
+  <template is="head" data="{{title: '自定义图标组件'}}"/>
+	
+	<view>page.json可定义自定义组件的标签名: <i type="address" size="35px"/></view>
+	<view>基础组件icon: <icon type="success" /></view>
+
+  <template is="foot" />
+</view>

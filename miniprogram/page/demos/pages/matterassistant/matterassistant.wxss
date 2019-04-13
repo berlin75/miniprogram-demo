@@ -1,6 +1,6 @@
-@import "./matterassistant/utils/base.wxss";
-@import "./matterassistant/utils/calendar.wxss";
-@import "./matterassistant/utils/detail.wxss";
+@import "utils/base.wxss";
+@import "utils/calendar.wxss";
+@import "utils/detail.wxss";
 
 .wrapper {
     padding-bottom: 160rpx;

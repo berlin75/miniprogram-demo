@@ -1,0 +1,12 @@
+<view style="margin: 20rpx;">
+<navigator url="pages/wx-gesture-lock-master/wx-gesture-lock-master"><button>wx-gesture-lock-master 图形锁</button></navigator>
+<navigator url="pages/handpk/handpk"><button>handpk 石头剪刀布</button></navigator>
+<navigator url="pages/zhuanpan/zhuanpan"><button>zhuanpan 仿天猫转盘抽奖</button></navigator>
+<navigator url="pages/turntable/turntable"><button>turntable 转盘抽奖</button></navigator>
+<navigator url="pages/switchcity/switchcity"><button>switchcity 城市选择器</button></navigator>
+<navigator url="pages/menu/menu"><button>menu 圆形旋转菜单</button></navigator>
+<navigator url="pages/snake/snake"><button>snake 贪吃蛇</button></navigator>
+<navigator url="pages/matterassistant/matterassistant"><button>matterassistant 事项助手</button></navigator>
+<navigator url="pages/marquee/marquee"><button>marquee 跑马灯</button></navigator>
+
+</view>

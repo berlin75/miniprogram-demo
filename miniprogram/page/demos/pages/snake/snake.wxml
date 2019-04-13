@@ -13,10 +13,8 @@
     </view>
   </view>
   <view class="ground">
-    <view wx:for="{{ground}}" class="rows" wx:for-item="cols">
-      <view wx:for="{{cols}}" class="block block_{{item}}">
-
-      </view>
+    <view wx:for="{{ground}}" wx:key="index" class="rows" wx:for-item="cols">
+      <view wx:for="{{cols}}" wx:key="index" class="block block_{{item}}"></view>
     </view>
   </view>
   <modal class="modal" hidden="{{modalHidden}}" no-cancel bindconfirm="modalChange">

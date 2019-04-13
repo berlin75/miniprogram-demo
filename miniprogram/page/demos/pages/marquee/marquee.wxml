@@ -1,0 +1,33 @@
+<view style="margin: 0 20rpx;">
+	<view>跑马灯就是一直滚动,很容易想到使用无限循环的animation,而一直往左滚动的效果通过css有很多种方式,如x改变left,margin-left,tranform:translateX()都可以实现,但是left和margin-left一般会导致布局的重新计算,使用transform: translateX()性能会更好一些,调整滚动速度可以设置.content的元素的动画时间即animation-duration样式</view>
+
+	<view style="margin-top: 40rpx">demo1自定义组件:封装swiper组件</view>
+	<roll news="{{rollnews}}"/>
+
+	<view style="margin-top: 40rpx">demo5: 广告推送不适宜占用大幅位置,且动态滚动效果更能吸引视线,swiper组件实现自下往上滚动的跑马灯</view>
+	<view class='horizontal'>
+    <swiper class='item' vertical autoplay interval="2000" duration="1000" circular >
+      <swiper-item class='show-text-1' wx:for="{{['平安夜，百人祝福领取苹果~','寒流来袭，你的秋裤准备好了吗？','快收下，新鲜出炉冬季实用穿搭指南~']}}" wx:key="index" >
+        <text class='tui_text'>推荐</text>
+        <text class='tui_item'>{{item}}</text>
+      </swiper-item>
+    </swiper>
+	  <view class='more'>更多>></view>
+	</view>
+
+	<view style="margin-top: 40rpx">demo4: css3 + animation跑马灯</view>
+	<view class="marquee4">
+    <view class="content4">
+    	<block wx:for="{{[1,2,3]}}" wx:key="index">
+	      <text>'demo4 跑马灯效果,test,test,test,test,test,test,test,结束'</text> 
+	      <text style="display: inline-block; width: 5em;"></text>
+	    </block>
+    </view>
+	</view>
+
+	<view style="margin-top: 40rpx">demo3: left</view>
+	<view style="position:relative;">
+		<view class='text' style='position:absolute;top:0;left:{{offsetLeft}}px;white-space:nowrap;'>{{text}}</view>
+	</view>
+
+</view>

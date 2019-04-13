@@ -3,7 +3,6 @@
 var app = getApp()
 Page({
   data: {
-    userInfo: {},
     menuList: {},//菜单集合
     animationData: {},
     startPoint: {},//触摸开始
@@ -22,12 +21,6 @@ Page({
   onLoad: function () {
     var that = this
     //调用应用实例的方法获取全局数据
-    app.getUserInfo(function (userInfo) {
-      //更新数据
-      that.setData({
-        userInfo: userInfo,
-      })
-    })
     wx.getSystemInfo({
       success: function (res) {
         var windowWidth = res.windowWidth * 0.5;
@@ -43,12 +36,12 @@ Page({
     var that = this;
     app.menuConfig = {
       menu: [
-        { 'index': 0, 'menu': '我的账户', 'src': 'images/account.png' },
-        { 'index': 1, 'menu': '信用卡', 'src': 'images/card.png' },
-        { 'index': 2, 'menu': '投资理财', 'src': 'images/investment.png' },
-        { 'index': 3, 'menu': '现金贷款', 'src': 'images/loan.png' },
-        { 'index': 4, 'menu': '特色服务', 'src': 'images/service.png' },
-        { 'index': 5, 'menu': '转账汇款', 'src': 'images/transfer.png' }
+        { 'index': 0, 'menu': '我的账户', 'src': '../../images/account.png' },
+        { 'index': 1, 'menu': '信用卡', 'src': '../../images/card.png' },
+        { 'index': 2, 'menu': '投资理财', 'src': '../../images/investment.png' },
+        { 'index': 3, 'menu': '现金贷款', 'src': '../../images/loan.png' },
+        { 'index': 4, 'menu': '特色服务', 'src': '../../images/service.png' },
+        { 'index': 5, 'menu': '转账汇款', 'src': '../../images/transfer.png' }
       ]
     }
     // 绘制转盘

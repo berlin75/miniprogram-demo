@@ -1,5 +1,5 @@
 const config = require('./config')
-const event = require('./page/component/pages/demos/lib/event.js');
+const event = require('./page/demos/lib/event.js');
 
 App({
   onLaunch(opts) {
@@ -13,7 +13,7 @@ App({
       })
     }
 
-    // "page/component/pages/demos/wx-gesture-lock-master"
+    // "demos/wx-gesture-lock-master"
     event(this);
   },
   onShow(opts) {

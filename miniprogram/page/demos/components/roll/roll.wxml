@@ -1,0 +1,10 @@
+<!-- //滚动 -->
+<view class='sx_lunbo'>
+  <text class='notify'>公告</text>
+  <swiper class='sx_swiper' autoplay interval="5000" duration="3000" bindchange="bindchange" circular>
+    <swiper-item wx:for="{{news}}" wx:key="index">
+      <view class='title'>{{item.title}}</view>
+    </swiper-item>
+  </swiper>
+  <view class='chakan' data-newid='{{newid}}' bindtap="showdetail">查看</view>
+</view>

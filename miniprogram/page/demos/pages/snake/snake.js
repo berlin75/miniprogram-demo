@@ -42,15 +42,15 @@ Page({
       }
   },
   //操场
-    initGround:function(rows,cols){
-        for(var i=0;i<rows;i++){
-            var arr=[];
-            this.data.ground.push(arr);
-            for(var j=0;j<cols;j++){
-                this.data.ground[i].push(0);
-            }
-        }
-    },
+  initGround:function(rows,cols){
+      for(var i=0;i<rows;i++){
+          var arr=[];
+          this.data.ground.push(arr);
+          for(var j=0;j<cols;j++){
+              this.data.ground[i].push(0);
+          }
+      }
+  },
    //蛇
    initSnake:function(len){
        for(var i=0;i<len;i++){

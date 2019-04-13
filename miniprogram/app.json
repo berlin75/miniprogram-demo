@@ -44,14 +44,16 @@
     "page/component/pages/web-view/web-view",
     "page/component/pages/map-styles/map-styles",
     "page/component/pages/doc-web-view/doc-web-view",
-    "page/component/pages/demos/demos",
-    "page/component/pages/demos/wx-gesture-lock-master",
-    "page/component/pages/demos/handpk",
-    "page/component/pages/demos/zhuanpan",
-    "page/component/pages/demos/switchcity",
-    "page/component/pages/demos/menu",
-    "page/component/pages/demos/snake",
-    "page/component/pages/demos/matterassistant",
+    "page/demos/demos",
+    "page/demos/pages/wx-gesture-lock-master/wx-gesture-lock-master",
+    "page/demos/pages/handpk/handpk",
+    "page/demos/pages/zhuanpan/zhuanpan",
+    "page/demos/pages/switchcity/switchcity",
+    "page/demos/pages/menu/menu",
+    "page/demos/pages/snake/snake",
+    "page/demos/pages/matterassistant/matterassistant",
+    "page/demos/pages/turntable/turntable",
+    "page/demos/pages/marquee/marquee",
     "page/API/index",
     "page/API/pages/login/login",
     "page/API/pages/get-user-info/get-user-info",
@@ -128,7 +130,7 @@
     "page/cloud/pages/scf-database/scf-database",
     "page/cloud/pages/scf-storage/scf-storage",
     "page/cloud/pages/doc-web-view/doc-web-view",
-    "page/component/pages/demos/turntable"
+    "page/component/pages/icon2/icon2"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -159,6 +161,12 @@
         "iconPath": "image/icon_cloud.png",
         "selectedIconPath": "image/icon_cloud_HL.png",
         "text": "云开发"
+      },
+      {
+        "pagePath": "page/demos/demos",
+        "iconPath": "image/biaoxing.png",
+        "selectedIconPath": "image/biaoxing_HL.png",
+        "text": "demos"
       }
     ]
   },
